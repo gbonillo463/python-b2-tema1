@@ -1,5 +1,5 @@
 """
-Enunciado:
+Enunciado: 
 Desarrolla un conjunto de funciones para la manipulación y transformación de datos textuales a través de operaciones
 con bytes y bytearray en Python. Las funciones deberán modificar un texto a bytes, revertir el orden de los bytes,
 incrementar el valor de cada byte y finalmente decodificar el resultado a texto.
