@@ -37,18 +37,19 @@ from typing import ByteString, Union
 
 
 def text_to_bytes(text: str) -> bytes:
-    # Write here your code
-    pass
+    return bytes(text, 'UTF-8')
 
 
 def reverse_bytes(bytes_data: ByteString) -> bytearray:
-    # Write here your code
-    pass
+    ba = bytearray(bytes_data)
+    return ba[::-1]
 
 
 def increment_bytearray_rollover(byte_array: bytearray) -> bytearray:
-    # Write here your code
-    pass
+    for i in range(len(byte_array)):
+        byte_array[i] = byte_array[i] + 1 % 256
+    return byte_array
+
 
 
 def bytes_to_text(bytes_data: Union[bytes, bytearray]) -> str:
@@ -57,16 +58,16 @@ def bytes_to_text(bytes_data: Union[bytes, bytearray]) -> str:
 
 
 # Para probar el código, descomenta las siguientes líneas
-# if __name__ == "__main__":
-#     original_text = "Hola Mundo!"
-#     original_bytes = text_to_bytes(original_text)
-#     print("Original Bytes:", original_bytes)
+if __name__ == "__main__":
+    original_text = "Hola Mundo!"
+    original_bytes = text_to_bytes(original_text)
+    print("Original Bytes:", original_bytes)
 
-#     reversed_bytearray = reverse_bytes(original_bytes)
-#     print("Reversed Bytearray:", reversed_bytearray)
+    reversed_bytearray = reverse_bytes(original_bytes)
+    print("Reversed Bytearray:", reversed_bytearray)
 
-#     modified_bytearray = increment_bytearray_rollover(reversed_bytearray)
-#     print("Modified Bytearray:", modified_bytearray)
+    modified_bytearray = increment_bytearray_rollover(reversed_bytearray)
+    print("Modified Bytearray:", modified_bytearray)
 
-#     processed_text = bytes_to_text(modified_bytearray)
-#     print("Processed Text:", processed_text)
+    processed_text = bytes_to_text(modified_bytearray)
+    print("Processed Text:", processed_text)
