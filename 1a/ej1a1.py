@@ -47,9 +47,8 @@ def reverse_bytes(bytes_data: ByteString) -> bytearray:
 
 def increment_bytearray_rollover(byte_array: bytearray) -> bytearray:
     for i in range(len(byte_array)):
-        byte_array[i] = byte_array[i] + 1 % 256
+        byte_array[i] = (byte_array[i] + 1) % 256
     return byte_array
-
 
 
 def bytes_to_text(bytes_data: Union[bytes, bytearray]) -> str:
