@@ -52,8 +52,7 @@ def increment_bytearray_rollover(byte_array: bytearray) -> bytearray:
 
 
 def bytes_to_text(bytes_data: Union[bytes, bytearray]) -> str:
-    # Write here your code
-    pass
+    return bytes_data.decode("utf-8")
 
 
 # Para probar el código, descomenta las siguientes líneas
