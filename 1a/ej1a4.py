@@ -62,9 +62,8 @@ tasks: Dict[int, Task] = {}
 
 
 def create_task(title: str) -> int:
-    # Write here your code
-    pass
-
+    
+    
 
 def change_task_status(task_id: int, new_status: TaskStatus) -> bool:
     # Write here your code
