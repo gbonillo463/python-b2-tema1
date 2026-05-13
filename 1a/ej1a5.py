@@ -56,39 +56,44 @@ inventory: Dict[Tuple[str, str], Product] = {}
 
 def add_product(name: str, category: str, quantity: int, price: float) -> Product:
     # Complete the code
-    pass
+    new_product = Product(name=name, category=category, quantity=quantity, price=price)
     key = (name, category)
-    if key in :
-        existing_product = 
-        existing_product. += 
-        existing_product. = 
+    if key in inventory:
+        existing_product = inventory[key]
+        existing_product.quantity += quantity
+        existing_product.price = price
     else:
-         = Product
-    return 
+        inventory[key] = new_product
+    return  new_product
 
 
 def list_products() -> str:
     # Complete the code
-    pass
-    for product in :
-            (f"{product.name} ({product.category}) - {product.quantity} units at ${product.price} each")
-        return
+    product_details = []
+    for product in inventory.values():
+        product_details.append(f"{product.name} ({product.category}) - {product.quantity} units at ${product.price} each")
+    return "\n".join(product_details)
+
 
 
 def find_product(name: str, category: str) -> Optional[Product]:
-    # Write here your code
-    pass
+    key = (name, category)
+    if key in inventory:
+        return inventory[key]
+    return None
 
 
 # Para probar el código, descomenta las siguientes líneas
-# if __name__ == "__main__":
-#     add_product("Apples", "Fruits", 100, 0.50)
-#     add_product("Pears", "Fruits", 50, 0.70)
-#     add_product("Apples", "Fruits", 50, 0.55)
+if __name__ == "__main__":
+    add_product("Apples", "Fruits", 100, 0.50)
+    add_product("Pears", "Fruits", 50, 0.70)
+    add_product("Apples", "Fruits", 50, 0.55)
+    add_product("Bananas", "Fruits", 30, 0.45)
 
-#     print(list_products())
-#     found_product = find_product("Apples", "Fruits")
-#     if found_product:
-#         print(f"Product found: {found_product.name} ({found_product.category}) - {found_product.quantity} units at ${found_product.price} each")
-#     else:
-#         print("Product not found.")
+    print(list_products())
+    found_product = find_product("Apples", "Fruits")
+    if found_product:
+        print(f"Product found: {found_product.name} ({found_product.category}) - {found_product.quantity} units at ${found_product.price} each")
+    else:
+        print("Product not found.")
+
